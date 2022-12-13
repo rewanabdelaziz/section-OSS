@@ -1,0 +1,15 @@
+D:\roro\bin\Debug\net7.0\roro.exe
+D:\roro\bin\Debug\net7.0\roro.deps.json
+D:\roro\bin\Debug\net7.0\roro.runtimeconfig.json
+D:\roro\bin\Debug\net7.0\roro.dll
+D:\roro\bin\Debug\net7.0\roro.pdb
+D:\roro\obj\Debug\net7.0\roro.csproj.AssemblyReference.cache
+D:\roro\obj\Debug\net7.0\roro.GeneratedMSBuildEditorConfig.editorconfig
+D:\roro\obj\Debug\net7.0\roro.AssemblyInfoInputs.cache
+D:\roro\obj\Debug\net7.0\roro.AssemblyInfo.cs
+D:\roro\obj\Debug\net7.0\roro.csproj.CoreCompileInputs.cache
+D:\roro\obj\Debug\net7.0\roro.dll
+D:\roro\obj\Debug\net7.0\refint\roro.dll
+D:\roro\obj\Debug\net7.0\roro.pdb
+D:\roro\obj\Debug\net7.0\roro.genruntimeconfig.cache
+D:\roro\obj\Debug\net7.0\ref\roro.dll
