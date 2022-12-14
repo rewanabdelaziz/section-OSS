@@ -1,9 +1,10 @@
 ﻿using System;
 namespace Rewan;
 
-//task2
+//task3
 
-public abstract class Person{
+//can't create object of abstract class Person 
+public  class Person{
     public string Name;
     public int Age;
     
@@ -13,20 +14,10 @@ public abstract class Person{
         Name=name;
         Age=age;
      }
-     public abstract void print();
-}
-//can't create object of abstract class Person 
-public class Person2 :Person{
-    public Person2(string name,int age) : base (name,age)
-    {
-    
-    }
-
-    public override void print()
+      public virtual void print()
      {
-        Console.WriteLine($"My name is {Name} and my age is {Age}");
+        Console.Write($"My name is {Name} , my age is {Age}");
      }
-
 }
 
 public class Student : Person
@@ -45,7 +36,8 @@ public class Student : Person
 
      public override void print()
      {
-        Console.WriteLine($"My name is {Name}, my age is {Age}, and my gpa is {Gpa}");
+        base.print();
+        Console.WriteLine($" and my gpa is {Gpa}");
      }
 
 }
@@ -62,7 +54,8 @@ public Staff(string name,int age,double salary, int joinYear) : base(name,age){
 
 public override void print()
      {
-        Console.WriteLine($"My name is {Name}, my age is {Age}, and my Salary is {Salary}");
+        base.print();
+        Console.WriteLine($" and my Salary is {Salary}");
      }
 }
 
@@ -172,7 +165,7 @@ public class Rewan{
 
                    var age3 =Convert.ToInt32(Console.ReadLine());
 
-                   var person= new Person2(name3,age3);
+                   var person= new Person(name3,age3);
         
                    database.AddPerson(person);
 
