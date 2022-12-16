@@ -255,11 +255,10 @@ public class Rewan{
 
                        database.AddStudent(student);
                    }
-                   catch 
+                    catch (Exception e)
                    {
-                     Console.WriteLine("invalid input");
-                   }      
-
+                     Console.WriteLine(e.Message);
+                   } 
                     break;
                 
                 case 2:
@@ -286,9 +285,9 @@ public class Rewan{
 
                       database.AddStaff(staff);
                    }
-                   catch 
+                   catch (Exception e)
                    {
-                     Console.WriteLine("invalid input");
+                     Console.WriteLine(e.Message);
                    }      
 
                   break;
@@ -311,10 +310,10 @@ public class Rewan{
         
                      database.AddPerson(person);
                    }
-                   catch 
+                    catch (Exception e)
                    {
-                     Console.WriteLine("invalid input");
-                   }
+                     Console.WriteLine(e.Message);
+                   } 
                 //  try
                 //    {
                 //    
