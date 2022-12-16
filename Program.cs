@@ -314,18 +314,6 @@ public class Rewan{
                    {
                      Console.WriteLine(e.Message);
                    } 
-                //  try
-                //    {
-                //    
-                //      var person= new Person(name3,age3);
-        
-                //      database.AddPerson(person);
-                //    }
-                //    catch (Exception e)
-                //    {
-                //      Console.WriteLine(e.Message);
-                //    }
-               
 
                     break;
 
