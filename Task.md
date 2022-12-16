@@ -42,3 +42,31 @@
 ## Task 3
 
 Update the Main() method to accept non-students non-staff people
+
+## Task (4)
+
+1) Add Validation in the Person class to match the following: -
+    - Name should be not null, not empty, and no more than 32 characters
+    - Age should be more than zero and no more than 128
+
+## Task (5)
+
+1) Use Exception to break the code execution if something goes wrong
+
+## Task 6
+
+1) Add Validation in the Student class to match the following: -
+    - Year should between 1 and 5
+    - Gpa should between 0 and 4
+    - Make sure not to create the object if there's any validation issue (Optional)
+
+2) Add Validation in the Staff class to match the following: -
+    - Salary should be more than zero and no more than 120,000
+    - JoinYear should be more than age by 21 years
+    - Make sure not to create the object if there's any validation issue (Optional)
+
+## Task 7 (Optional)
+
+- Apply the encapsulation concept for the Student and Staff classes
+    - Use Getter/Setter methods
+    - Using Properties

@@ -1,35 +1,93 @@
 ﻿using System;
 namespace Rewan;
 
-//task3
-
-//can't create object of abstract class Person 
+//task4
+//can't create object of abstract class Person
 public  class Person{
-    public string Name;
-    public int Age;
+
+    private string _name;
+    //property using arrow function    get to return name     set to put value in varaible name  
+
+    //can use this
+    //  public string Name{get => _name; set=> _name= value;}
+    // or this
+
+    public string Name
+    {
+        get { return _name;}
+        set{
+            if (value==null || value=="" || value.Length>= 32)
+        {
+            
+            throw new NullReferenceException("invalid name");     //var ex = new Exception{};
+          
+        }
+          _name=value;
+        }
+    }
+
+    private int _age;
+
+    public int Age{
+         get { return _age;}
+          set{
+        if (_age<=0 || _age>128){
+            throw new Exception("invalid age");
+        }
+
+        _age=value;
+          }
+    }
     
 
      public Person(string name,int age)
-     {
+     {  
+        // if (name==null || name=="" || name.Length>= 32)
+        // {
+            
+        //     throw new NullReferenceException("invalid name");     //var ex = new Exception{};
+               
+        //     // Console.WriteLine("invalid name");
+        //     // return;
+        // }
+
+        if (age<=0 || age>128){
+            throw new Exception("invalid age");
+            // Console.WriteLine("invalid age");
+            // return;
+        }
+
         Name=name;
         Age=age;
      }
+     
+    //  public string Getname() => _name;
+
+    //  public int GetAge()  => _age;
+
+     public void SetName(string name){
+        if (name==null || name=="" || name.Length>= 32)
+        {
+            
+            throw new NullReferenceException("invalid name");     //var ex = new Exception{};
+               
+        }
+     }
       public virtual void print()
      {
-        Console.Write($"My name is {Name} , my age is {Age}");
+        Console.Write($"My name is {Name} , my age is {Age} ");
      }
 }
 
 public class Student : Person
 {
   public int Year;
-  public float Gpa;
+  public float Gpa {get; set;}
   
 
      public Student(string name,int age,int year,float gpa) : base(name,age)
      {
-        Name=name;
-        Age=age;
+        
         Year=year;
         Gpa=gpa;
      }
@@ -165,9 +223,30 @@ public class Rewan{
 
                    var age3 =Convert.ToInt32(Console.ReadLine());
 
-                   var person= new Person(name3,age3);
+                   // to catch exception and continue execution
+                   try
+                   {
+                    //statement which I expected it may has exception
+                     var person= new Person(name3,age3);
         
-                   database.AddPerson(person);
+                     database.AddPerson(person);
+                   }
+                   catch 
+                   {
+                     Console.WriteLine("invalid input");
+                   }
+                //  try
+                //    {
+                //     //statement which I expected it may has exception
+                //      var person= new Person(name3,age3);
+        
+                //      database.AddPerson(person);
+                //    }
+                //    catch (Exception e)
+                //    {
+                //      Console.WriteLine(e.Message);
+                //    }
+               
 
                     break;
 
