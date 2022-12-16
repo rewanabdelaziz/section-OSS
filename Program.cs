@@ -1,12 +1,13 @@
 ﻿using System;
 namespace Rewan;
 
-//task4
+//task 6 & 7
+
 //can't create object of abstract class Person
 public  class Person{
 
     private string _name;
-    //property using arrow function    get to return name     set to put value in varaible name  
+    //property using arrow function    get to return name     set to put value in varaible  
 
     //can use this
     //  public string Name{get => _name; set=> _name= value;}
@@ -31,7 +32,7 @@ public  class Person{
     public int Age{
          get { return _age;}
           set{
-        if (_age<=0 || _age>128){
+        if (value<=0 || value>128){
             throw new Exception("invalid age");
         }
 
@@ -51,11 +52,11 @@ public  class Person{
         //     // return;
         // }
 
-        if (age<=0 || age>128){
-            throw new Exception("invalid age");
-            // Console.WriteLine("invalid age");
-            // return;
-        }
+        // if (age<=0 || age>128){
+        //     throw new Exception("invalid age");
+        //     // Console.WriteLine("invalid age");
+        //     // return;
+        // }
 
         Name=name;
         Age=age;
@@ -65,14 +66,14 @@ public  class Person{
 
     //  public int GetAge()  => _age;
 
-     public void SetName(string name){
-        if (name==null || name=="" || name.Length>= 32)
-        {
+    //  public void SetName(string name){
+    //     if (name==null || name=="" || name.Length>= 32)
+    //     {
             
-            throw new NullReferenceException("invalid name");     //var ex = new Exception{};
+    //         throw new NullReferenceException("invalid name");     //var ex = new Exception{};
                
-        }
-     }
+    //     }
+    //  }
       public virtual void print()
      {
         Console.Write($"My name is {Name} , my age is {Age} ");
@@ -81,8 +82,37 @@ public  class Person{
 
 public class Student : Person
 {
-  public int Year;
-  public float Gpa {get; set;}
+     private int _year;
+    public int Year
+    {
+        get { return _year;}
+        set{
+            if (value<1 ||value>5)
+        {
+            
+            throw new Exception("invalid year");     
+          
+        }
+          _year=value;
+        }
+    }
+  
+  //public float Gpa {get; set;}
+    private float _gpa;
+    public float Gpa
+    {
+        get { return _gpa;}
+        set{
+            if (value<0 ||value>4)
+        {
+            
+            throw new Exception("invalid Gpa");     
+          
+        }
+          _gpa=value;
+        }
+    }
+
   
 
      public Student(string name,int age,int year,float gpa) : base(name,age)
@@ -91,6 +121,11 @@ public class Student : Person
         Year=year;
         Gpa=gpa;
      }
+
+     //  public int GetYear() => _year;
+
+    //  public float GetGpa()  => _gpa;
+
 
      public override void print()
      {
@@ -102,13 +137,44 @@ public class Student : Person
 
 public class Staff : Person
 {
-public double Salary;
-public int JoinYear;
+private double _salary;
+    public double Salary
+    {
+        get { return _salary;}
+        set{
+            if (value<=0 ||value>120000)
+        {
+            
+            throw new Exception("invalid salary");     
+          
+        }
+          _salary=value;
+        }
+    }
+
+private int _joinYear;
+    public int JoinYear
+    {
+        get { return _joinYear;}
+        set{
+            if (value<Age+21)
+        {
+            
+            throw new Exception("invalid Join Year");     
+          
+        }
+          _joinYear=value;
+        }
+    }
 
 public Staff(string name,int age,double salary, int joinYear) : base(name,age){
     Salary=salary;
     JoinYear=joinYear;
 }
+
+    //  public double GetSalary() => _Slary;
+
+    //  public int GetJoinYear()  => _joinYear;
 
 public override void print()
      {
@@ -183,9 +249,16 @@ public class Rewan{
 
                    var gpa =Convert.ToSingle(Console.ReadLine());
 
-                   var student= new Student(name,age,year,gpa);
+                    try
+                   {
+                       var student= new Student(name,age,year,gpa);
 
-                   database.AddStudent(student);
+                       database.AddStudent(student);
+                   }
+                   catch 
+                   {
+                     Console.WriteLine("invalid input");
+                   }      
 
                     break;
                 
@@ -205,11 +278,18 @@ public class Rewan{
          
                   Console.Write("Join Year : ");
 
-                  var joinYear =Convert.ToInt32(Console.ReadLine());      
+                  var joinYear =Convert.ToInt32(Console.ReadLine());
 
-                  var staff = new Staff(name2,age2,salary,joinYear);
+                 try
+                   {
+                      var staff = new Staff(name2,age2,salary,joinYear);
 
-                  database.AddStaff(staff);
+                      database.AddStaff(staff);
+                   }
+                   catch 
+                   {
+                     Console.WriteLine("invalid input");
+                   }      
 
                   break;
 
@@ -237,7 +317,7 @@ public class Rewan{
                    }
                 //  try
                 //    {
-                //     //statement which I expected it may has exception
+                //    
                 //      var person= new Person(name3,age3);
         
                 //      database.AddPerson(person);
